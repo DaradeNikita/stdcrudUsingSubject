@@ -1,0 +1,37 @@
+
+ 
+      <table class="table table-bordered " *ngIf="stdInfoArray.length > 0 ;else nostdData">
+        <thead>
+          <tr>
+            <th>Sr.No</th>
+            <th>Student Name</th>
+            <th>Email Id</th>
+            <th>Branch</th>
+            <th>Contact Number</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let std of stdInfoArray ; index as i">
+            <td>{{i+1}}</td>
+            <td>{{std.stdName}}</td>
+            <td>{{std.email}}</td>
+            <td>{{std.branch}}</td>
+            <td>{{std.contactInfo}}</td>
+            <td><i class="fa-regular fa-pen-to-square text-primary"
+             (click)=" onstdInfoEdit(std)" 
+              ></i></td>
+            <td><i class="fa-solid fa-trash text-danger"
+              (click)=" onstdInfoDelete(std)" 
+              ></i></td>
+          </tr>
+        </tbody>
+      </table>
+ 
+
+<ng-template  #nostdData>
+  <p class="alert alert-danger">
+      No student added yet !!!
+  </p>
+</ng-template>
